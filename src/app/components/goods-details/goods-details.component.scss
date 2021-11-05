@@ -1,0 +1,116 @@
+.container{
+  background-color: var(--ion-color-light);
+
+  .toolbar{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 10px;
+    color: #fff;
+  }
+
+  @media(min-width: 768px) {
+    &{
+      .top{
+        padding: 20px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+
+        .main-container{
+          width: 60%;
+        }
+
+        .secondary-container{
+          width: 35%;
+        }
+      }
+    }
+  }
+}
+
+.secondary-container{
+
+  
+  .secondary-content{
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 768px) {
+    .secondary-content{
+      box-shadow: 0 0 10px 5px rgba(0, 0, 0, .2);
+    }
+  }
+}
+
+.main-container{
+
+  .details{
+    padding: 0 10px;
+
+    .detail{
+      margin: 20px 0;
+    }
+
+    .title{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px #aaa solid;
+
+      h2{
+        font-weight: 600;
+      }
+    }
+
+    .views{
+      display: flex;
+      align-items: center;
+
+      p{
+        margin-right: 10px;
+      }
+
+      ion-icon{
+        font-size: 24px;
+      }
+    }
+  }
+
+  .tips{
+    ul li{
+      margin: 30px 0;
+    }
+  }
+  
+}
+
+.seller-details{
+  .container{
+    padding: 10px;
+
+    .dp{
+      padding: 10px;
+      ion-avatar{
+        height: 150px;
+        width: 150px;
+        margin: 0 auto;
+      }
+    }
+
+    .details{
+      padding-bottom: 50px;
+      border-bottom: 1px #aaa solid;
+    }
+
+    .actions{
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+}

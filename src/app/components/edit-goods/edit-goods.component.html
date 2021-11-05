@@ -1,0 +1,74 @@
+<div class="form-container">
+  <div class="form">
+    <div class="top-form">
+      <div class="img-container">
+        <div class="img">
+          <img src="https://allin1shop.ng/assets/icon/favicon.png" alt="AllIn1">
+        </div>
+
+        <h5 style="color: #fff; font-size: 14px; font-weight: 600;">allIn1</h5>
+      </div>
+
+      <h5 class="title">Edit Goods</h5>
+    </div>
+
+    <div class="main-form">
+      <form [formGroup]="formGroup">
+
+        <mat-form-field appearance="fill" class="input-full-width">
+          <mat-label>Title</mat-label>
+          <input type="text" matInput formControlName="title" autocomplete="off">
+          <mat-error *ngIf="formGroup.get('title').hasError('required')">
+            Field is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill" class="input-full-width">
+          <mat-label>Description</mat-label>
+          <textarea type="text" matInput formControlName="description" autocomplete="off"></textarea>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill" class="input-full-width">
+          <mat-label>Price</mat-label>
+          <input type="number" matInput formControlName="price" autocomplete="off" >
+          <span style="display: inline-block; margin-right: 5px;" matPrefix>&#8358; </span>
+        </mat-form-field>
+        
+        <div class="check" style="margin: 10px 0 20px 0;">
+          <mat-checkbox formControlName="negotiable">Negotiable</mat-checkbox>
+        </div>
+        
+        <mat-form-field appearance="fill" class="input-full-width">
+          <mat-label>Goods Region</mat-label>
+          <mat-select formControlName="goodslocation" (selectionChange)="getCities()">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let state of states" [value]="state.name">
+              {{ state.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill" class="input-full-width">
+          <mat-label>Goods Location</mat-label>
+          <mat-select formControlName="goodsaddress1">
+            <mat-option *ngFor="let city of cities" [value]="city">
+              {{ city }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <app-image-drag #imgGoods 
+          (mainImageChange)="onMainChange($event)"
+          (otherImageChange)="onOtherChange($event)"
+        ></app-image-drag>
+
+        <div class="btn-container ion-text-center ion-margin-top">
+          <ion-button (click)="editShop()" [disabled]="formGroup.invalid" expand="block">
+            <ion-spinner name="crescent" *ngIf="isEditing"></ion-spinner>
+            <ion-text *ngIf="!isEditing">Edit Goods</ion-text>
+          </ion-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

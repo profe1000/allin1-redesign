@@ -1,0 +1,10 @@
+<div class="img-container">
+  <div class="main-img">
+    <ion-img [src]="activeImage"></ion-img>
+  </div>
+  <div class="img-options">
+    <div class="img-option" *ngFor="let img of images" [class.active]="img.active" (click)="changeActiveImage(img.id)">
+      <ion-img  [src]="img.image"></ion-img>
+    </div>
+  </div>
+</div>

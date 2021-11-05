@@ -1,0 +1,35 @@
+<div class="logo-container">
+
+  <h5 class="ion-text-center">{{ header }}</h5>
+  
+  <div class="main-img">
+    <h6>{{ mainImageHeader }}</h6>
+
+    <div class="img-container" (click)="selectImage('main')">
+      <mat-icon class="img-icon" *ngIf="!hasUploadedMainImage">touch_app</mat-icon>
+      <ion-img [src]="mainImgSrc" *ngIf="hasUploadedMainImage"></ion-img>
+    </div>
+    <input type="file" class="ion-hide" id="main-image-file" accept="image/*" (change)="onMainImageChange($event)">
+    <input type="file" class="ion-hide" id="main-image-camera" accept="image/*" (change)="onMainImageChange($event)" capture="camera">
+  </div>
+
+  <div class="other-imgs main-img">
+    <h6>{{ otherImageHeader }}</h6>
+
+    <div class="other-img-container">
+      <div class="" *ngFor="let image of otherImages">
+        <div class="img-container" (click)="selectImage('other', image.id)">
+          <mat-icon class="img-icon" *ngIf="!image.hasImage">touch_app</mat-icon>
+          <ion-img [src]="image.imageSrc" *ngIf="image.hasImage"></ion-img>
+        </div>
+        <input type="file" class="ion-hide" [attr.id]="'other-image-file' + image.id" accept="image/*" (change)="onOtherImageChange($event, image.id)">
+        <input type="file" class="ion-hide" [attr.id]="'other-image-camera' + image.id" accept="image/*" (change)="onOtherImageChange($event, image.id)" capture="camera">
+      </div>
+    </div>
+
+    <button mat-icon-button class="add-btn" color="primary" matTooltip="Add photo" (click)="addImageClick()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
+

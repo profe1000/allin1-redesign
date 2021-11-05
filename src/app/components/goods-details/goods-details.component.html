@@ -1,0 +1,98 @@
+<div class="container" style="overflow-y: auto; overflow-x: hidden; height: 100%;">
+
+  <div class="ion-padding" *ngIf="false">
+    <app-status-viewer [status]="status" (statusChange)="changeStatus($event)"></app-status-viewer>
+  </div>
+  <ion-progress-bar type="indeterminate" *ngIf="isLoading"></ion-progress-bar>
+  
+  <div class="container" *ngIf="status == 'loaded'">
+
+    <div class="top">
+    
+      <div class="main-container">
+
+        <app-image-picker [images]="goodsImages" [defaultImage]="details?.featuredimage"></app-image-picker>
+
+        <div class="details">
+          <div class="title detail">
+            <h2>{{ details.title }}</h2>
+
+            <div class="views">
+              <p>{{ details.numofview }}</p>
+              <ion-icon name="eye" color="medium"></ion-icon>
+            </div>
+          </div>
+          <div class="detail">
+            <h5>Price: <span>&#8358;</span>{{ details.price }}</h5>
+          </div>
+        </div>
+
+        <div class="tips">
+          <div class="toolbar" style="background-color: var(--ion-color-warning);">
+            <h2>
+              <ion-icon name="warning"></ion-icon>
+              Safety Tips</h2>
+          </div>
+
+          <ul>
+            <li>Do not pay in advance even for the delivery</li>
+            <li>Please, check the background of the seller</li>
+            <li>DO NOT PAY for ANY certificates, form applications, etc</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="secondary-container">
+        <app-profile-viewer
+          [imageUrl]="details.dpurl"
+          [details]="profileDetails"
+          (onCall)="call()"
+          (onChat)="chat()"
+          (onViewProfile)="viewProfile()"
+        ></app-profile-viewer>
+        
+        <div class="secondary-content" style="height: 200px;">
+          <div class="toolbar" style="background-color: var(--ion-color-primary);">
+            <h2>
+              <strong>Specification</strong>
+            </h2>
+          </div>
+        </div>
+
+        <div class="secondary-content" style="height: 200px;">
+          <div class="toolbar" style="background-color: var(--ion-color-primary);">
+            <h2>
+              <strong>Review Shop</strong>
+            </h2>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+
+    <div class="card-container">
+      <h2 class="ion-padding">Goods you may like</h2>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="" *ngFor="let card of cards" size="6" sizeMd="4" sizeLg="3">
+            <app-home-item-card
+            [cardUrl]="'components/items/' + card?.goodsid"
+            [itemTitle]="card?.title"
+            [itemPrice]="card?.price"
+            [itemImage]="card?.featuredimage"
+            [itemLocation]="card?.address1"
+            >
+            </app-home-item-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    
+  </div>
+
+  <app-no-content-viewer class="no-data" *ngIf="status == 'no-data'"></app-no-content-viewer>
+
+  <app-error-viewer *ngIf="status == 'error'" (btnClick)="refresh()"></app-error-viewer>
+  
+</div>

@@ -1,0 +1,52 @@
+<div class="seller-details">
+  <div class="toolbar" style="background-color: var(--ion-color-primary);">
+    <h2>
+      <strong>Contact Seller</strong>
+    </h2>
+  </div>
+
+  <div class="container">
+
+    <div class="dp">
+      <ion-avatar>
+        <ion-img [src]="imageUrl"></ion-img>
+      </ion-avatar>
+    </div>
+
+    <div class="details">
+
+      <div class="detail" *ngFor="let detail of details">
+        <h5 *ngIf="!detail.hasIcon">{{ detail.key }}: {{ detail.value }}</h5>
+
+        <div *ngIf="detail.hasIcon" style="display: flex; margin: 16px auto;">
+          <span style="display: inline-block; margin-right: 7px;">
+            <ion-icon [name]="detail.icon"></ion-icon>
+          </span>
+          <h5 style="margin: 0;">: {{ detail.value }}</h5>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="actions">
+      <ion-button shape="round" fill="clear" class="action-btn" (click)="onCallClick($event)">
+        <ion-icon name="call" slot="start"></ion-icon>
+        Call
+      </ion-button>
+      <a [href]="[viewProfileUrl]" (click)="preventDefault($event)">
+        <ion-button shape="round" fill="clear" class="action-btn" (click)="onViewProfileClick($event)">
+          <ion-icon name="person" slot="start"></ion-icon>
+          View Profile
+        </ion-button>
+      </a>
+
+      <ion-button shape="round" fill="clear" class="action-btn" (click)="onChatClick($event)">
+        <ion-icon name="chatbubbles" slot="start"></ion-icon>
+        Chat
+      </ion-button>
+    </div>
+
+  </div>
+    
+</div>

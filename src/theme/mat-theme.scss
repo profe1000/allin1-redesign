@@ -1,0 +1,74 @@
+$primary-palette: (
+  50: #dff6f6,
+  100: #b0e8e8,
+  200: #7ed9da,
+  300: #4dc9cc,
+  400: #29bec4,
+  500: #01b3bd,
+  600: #04a3ab,
+  700: #0a8e93,
+  800: #0b7a7c,
+  900: #0c5754,
+
+  contrast: (
+    50: rgba(white, 1),
+    100: rgba(white, 1),
+    200: rgba(white, 1),
+    300: rgba(white, 1),
+    400: rgba(white, 1),
+    500: rgba(white, 1),
+    600: rgba(white, 1),
+    700: rgba(white, 1),
+    800: rgba(white, 1),
+    900: rgba(white, 1),
+  )
+);
+
+$secondary-palette: (
+  50: #f7e7e9,
+  100: #ebc2c5,
+  200: #ce8988,
+  300: #b75e5c,
+  400: #b93e39,
+  500: #b62b1f,
+  600: #a9231f,
+  700: #991b1a,
+  800: #8c1514,
+  900: #7c0d0b,
+
+  contrast: (
+    50: rgba(white, 1),
+    100: rgba(white, 1),
+    200: rgba(white, 1),
+    300: rgba(white, 1),
+    400: rgba(white, 1),
+    500: rgba(white, 1),
+    600: rgba(white, 1),
+    700: rgba(white, 1),
+    800: rgba(white, 1),
+    900: rgba(white, 1),
+  )
+);
+
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+$primary-theme: mat.define-palette($primary-palette, 800);
+$accent-theme: mat.define-palette($secondary-palette, 800, 600, 900);
+
+$light-theme: mat.define-light-theme((
+ color: (
+   primary: $primary-theme,
+   accent: $accent-theme,
+ )
+));
+
+@include mat.core-theme($light-theme);
+
+@include mat.button-theme($light-theme);
+@include mat.input-theme($light-theme);
+@include mat.form-field-theme($light-theme);
+@include mat.select-theme($light-theme);
+@include mat.checkbox-theme($light-theme);
+

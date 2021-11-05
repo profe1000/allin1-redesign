@@ -1,0 +1,16 @@
+<div class="control" style="margin: auto; width: 100%; max-width: 400px; box-shadow: 0 0 12px 5px rgba(0, 0, 0, .2);">
+  <ion-radio-group [value]="status" (ionChange)="changeStatus($event)">
+    <ion-item>
+      <ion-label>Loaded</ion-label>
+      <ion-radio value="loaded"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>No data</ion-label>
+      <ion-radio value="no-data"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Error</ion-label>
+      <ion-radio value="error"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</div>

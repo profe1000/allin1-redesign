@@ -1,0 +1,35 @@
+<a class="card" [routerLink]="['/' + cardUrl]">
+  <div class="bottom-border"></div>
+  <div class="img-container">
+    <img [src]="itemImage">
+  </div>
+  <div class="details">
+    <p class="detail" [title]="itemTitle">
+      <strong>
+        <ion-text>{{ itemTitle }}</ion-text>
+      </strong>
+    </p>
+    <p class="detail" *ngIf="cardType == 'goods'">
+      <strong>
+        <span>&#8358;</span>
+        <ion-text>{{ itemPrice }}</ion-text>
+      </strong>
+    </p>
+
+    <br>
+    <p class="detail" *ngIf="cardType == 'goods'">
+      <strong>
+        <span>Shop: </span>
+      </strong>
+      {{ shopCategory }}
+    </p>
+    
+    <p class="detail" style="display: flex;">
+      <span style="display: inline-block; margin-right: 7px;">
+        <ion-icon name="location-sharp"></ion-icon>
+      </span>
+      <ion-text>{{ itemLocation }}</ion-text>
+    </p>
+
+  </div>
+</a>

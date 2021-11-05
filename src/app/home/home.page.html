@@ -1,20 +1,23 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="false">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Components
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="ion-padding" style="width: 90%; margin: 0 auto;">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div class="files">
+      <app-file-select url="components/category-container" fileTitle="Categories"></app-file-select>
+      <app-file-select url="components/shop-items-container" fileTitle="Shop Items"></app-file-select>
+      <app-file-select url="components/shops-container" fileTitle="Shops"></app-file-select>
+      <app-file-select url="components/add-shop" fileTitle="Add Shop"></app-file-select>
+      <app-file-select url="components/edit-shop" fileTitle="Edit Shop"></app-file-select>
+      <app-file-select url="components/add-goods" fileTitle="Add Goods"></app-file-select>
+      <app-file-select url="components/edit-goods" fileTitle="Edit Goods"></app-file-select>
+    </div>
+
   </div>
 </ion-content>
