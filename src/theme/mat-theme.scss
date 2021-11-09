@@ -64,6 +64,13 @@ $light-theme: mat.define-light-theme((
  )
 ));
 
+$dark-theme: mat.define-dark-theme((
+ color: (
+    primary: $primary-theme,
+    accent: $accent-theme,
+  )
+));
+
 @include mat.core-theme($light-theme);
 
 @include mat.button-theme($light-theme);
@@ -72,3 +79,21 @@ $light-theme: mat.define-light-theme((
 @include mat.select-theme($light-theme);
 @include mat.checkbox-theme($light-theme);
 
+
+.dark-theme {
+  @include mat.core-color($dark-theme);
+  @include mat.button-color($dark-theme);
+  @include mat.form-field-color($dark-theme);
+  @include mat.select-color($dark-theme);
+  @include mat.option-color($dark-theme);
+  @include mat.checkbox-color($dark-theme);
+}
+
+@media (prefers-color-scheme: dark) {
+  @include mat.core-color($dark-theme);
+  @include mat.button-color($dark-theme);
+  @include mat.form-field-color($dark-theme);
+  @include mat.select-color($dark-theme);
+  @include mat.option-color($dark-theme);
+  @include mat.checkbox-color($dark-theme);
+}
