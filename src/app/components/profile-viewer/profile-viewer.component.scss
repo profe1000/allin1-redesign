@@ -1,5 +1,9 @@
 .seller-details{
     margin-bottom: 40px;
+    background-color: var(--ion-color-light);
+    color: var(--ion-color-light-contrast);
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, .2);
+
 
     .toolbar{
       width: 100%;
@@ -8,7 +12,10 @@
       align-items: center;
       justify-content: flex-start;
       padding: 0 10px;
-      color: #fff;
+      background-color: var(--ion-color-toolbar);
+      color: var(--ion-color-toolbar-contrast);
+      box-shadow: 0 7px 10px 0 rgba(0, 0, 0, .2);
+
     }
   
   .container{
@@ -29,7 +36,7 @@
     }
 
     .actions{
-      padding: 0 20px;
+      padding: 10px 20px;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -42,9 +49,9 @@
   }
 
   @media (min-width: 768px) {
-    &{
-      box-shadow: 0 0 10px 5px rgba(0, 0, 0, .2);
-    }
+    // &{
+    //   box-shadow: 0 0 10px 5px rgba(0, 0, 0, .2);
+    // }
 
     .container{
 
